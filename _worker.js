@@ -28,6 +28,9 @@ export default {
 			
 			// 构建请求头
 			const headers = new Headers();
+		        for (const pair of Object.entries(request.headers)) {
+		            headers.append(pair[0], pair[1]);
+		        }
 			headers.append('Authorization', `token ${githubToken}`);
 
 			// 发起请求
